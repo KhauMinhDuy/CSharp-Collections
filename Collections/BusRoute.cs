@@ -10,16 +10,22 @@ namespace Collections
     {
 
         public int Number { get; }
-        public string Origin { get; }
-        public string Description { get; }
+        public string Origin => PlacesServed[0];
+        public string Description => PlacesServed[^1];
 
-        public BusRoute(int number, string origin, string description)
+        public string[] PlacesServed { get; }
+
+        public BusRoute(int number, string[] placesServed)
         {
             Number = number;
-            Origin = origin;
-            Description = description;
+            PlacesServed = placesServed;
         }
 
         public override string ToString() => $"{Number} : {Origin} -> {Description}";
+
+        public bool Serves(string description)
+        {
+            return Array.Exists(PlacesServed, placesServed => placesServed == description);
+        }
     }
 }
