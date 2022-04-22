@@ -15,9 +15,9 @@ namespace Collections
 
         public BusRoute(int number, string origin, string description)
         {
-            Number = number;
-            Origin = origin;
-            Description = description;
+            this.Number = number;
+            this.Origin = origin;
+            this.Description = description;
         }
 
         public override string ToString() => $"{Number} : {Origin} -> {Description}";
