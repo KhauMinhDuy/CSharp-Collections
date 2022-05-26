@@ -11,15 +11,15 @@ namespace Collections
 
         public int Number { get; }
         public string Origin { get; }
-        public string Description { get; }
+        public string Destination { get; }
 
-        public BusRoute(int number, string origin, string description)
+        public BusRoute(int number, string origin, string destination)
         {
             this.Number = number;
             this.Origin = origin;
-            this.Description = description;
+            this.Destination = destination;
         }
 
-        public override string ToString() => $"{Number} : {Origin} -> {Description}";
+        public override string ToString() => $"{Number} : {Origin} -> {Destination}";
     }
 }
