@@ -13,13 +13,19 @@ namespace Collections
         public string Origin { get; }
         public string Description { get; }
 
-        public BusRoute(int number, string origin, string description)
+        public string[] PlacesServed { get; }
+
+        public BusRoute(int number, string[] placesServed)
         {
             this.Number = number;
-            this.Origin = origin;
-            this.Description = description;
+            this.PlacesServed = placesServed;
         }
 
         public override string ToString() => $"{Number} : {Origin} -> {Description}";
+
+        public bool Serves(string destination)
+        {
+            return Array.Exists(PlacesServed, place => place == destination);
+        }
     }
 }
