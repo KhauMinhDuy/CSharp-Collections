@@ -6,21 +6,17 @@ namespace Collections
     {
         public static void Main(string[] args)
         {
-			BusRoute route40 = new BusRoute(40, "Morecambe", "Preston");
-			BusRoute route42 = new BusRoute(42, "Lancaster", "Blackpool");
+			BusStop busStop = new BusStop();
+			Bus bus = new Bus();
 
-			BusRoute[] routes =
-			{
-				route40,
-				route42,
-				new BusRoute(100, "University", "Morecambe"),
-				new BusRoute(555, "Lancaster", "Keswick")
-			};
-
-			foreach(BusRoute route in routes)
+			for (int i = 0; i < 6; i++)
             {
-				Console.WriteLine(route);
+				busStop.PersonArrive(PassengerGenerator.CreatePassenger());
             }
+
+			busStop.BusArrive(bus);
+
+			bus.ArriveAtTerminus();
 		}
 
     }
