@@ -6,21 +6,19 @@ namespace Collections
     {
         public static void Main(string[] args)
         {
-			BusRoute route40 = new BusRoute(40, "Morecambe", "Preston");
-			BusRoute route42 = new BusRoute(42, "Lancaster", "Blackpool");
+			BusRouteRepository repository = new BusRouteRepository();
 
-			BusRoute[] routes =
+			BusTimes times5 = repository.BusTimesRoute5;
+			BusRoute route5 = times5.Route;
+
+			for (int iPlace = 0; iPlace < route5.PlacesServed.Length; iPlace++)
 			{
-				route40,
-				route42,
-				new BusRoute(100, "University", "Morecambe"),
-				new BusRoute(555, "Lancaster", "Keswick")
-			};
+				Console.Write(route5.PlacesServed[iPlace].PadRight(12));
 
-			foreach(BusRoute route in routes)
-            {
-				Console.WriteLine(route);
-            }
+				foreach (string time in times5.Times[iPlace])
+					Console.Write(time + " ");
+				Console.WriteLine();
+			}
 		}
 
     }
